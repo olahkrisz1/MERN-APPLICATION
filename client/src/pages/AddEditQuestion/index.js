@@ -10,6 +10,7 @@ import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { GetQuestionById } from "../../apicalls/questions";
+import Chat from "../../components/Chat";
 
 function AddEditQuestion() {
   const params = useParams();
@@ -136,6 +137,7 @@ function AddEditQuestion() {
           <Button title="Save" onClick={onSave} />
         </div>
       </div>
+      <Chat />
     </div>
   );
 }

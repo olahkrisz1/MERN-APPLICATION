@@ -6,7 +6,7 @@ function Question({ question }) {
   const navigate = useNavigate();
   return (
     <div
-      className="border border-primary rounded shadow p-5 flex flex-col gap-3 cursor-pointer"
+      className="border border-primary rounded shadow-xl  m-2 p-5 flex flex-col gap-3 cursor-pointer bg-indigo-50"
       onClick={() => {
         navigate(`/question/${question._id}`);
       }}
@@ -27,11 +27,11 @@ function Question({ question }) {
         </div>
         <div className="flex gap-4 items-center">
           <div className="flex gap-1 items-center">
-            <i class="ri-heart-line"></i>
+            <i className="ri-heart-line"></i>
             <span>{question.likesCount}</span>
           </div>
           <div className="flex gap-1 items-center">
-            <i class="ri-chat-new-line"></i>
+            <i className="ri-chat-new-line"></i>
             <span>{question.commentsCount}</span>
           </div>
         </div>

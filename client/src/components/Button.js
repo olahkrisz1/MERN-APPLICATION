@@ -7,10 +7,10 @@ function Button({ title, onClick, variant = "primary-contained", disabled }) {
       disabled={disabled}
       className={`
      px-5 h-10
-     ${variant === "primary-contained" && "bg-primary text-white"}
+     ${variant === "primary-contained" && "bg-primary text-white rounded"}
      ${
        variant === "primary-outlined" &&
-       "border-primary text-primary bg-white border"
+       "border-primary text-primary bg-white border rounded"
      }
      ${disabled && "opacity-50 cursor-not-allowed"}
      `}

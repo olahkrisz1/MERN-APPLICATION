@@ -39,7 +39,7 @@ function Comment({ comment, getData }) {
         </div>
 
         {currentUser._id === comment.user._id && (
-          <i class="ri-delete-bin-line" onClick={deleteComment}></i>
+          <i className="ri-delete-bin-line" onClick={deleteComment}></i>
         )}
       </div>
       <hr />

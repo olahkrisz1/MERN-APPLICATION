@@ -24,7 +24,7 @@ const Login = () => {
       } else {
         toast.error(response.message);
       }
-      dispatch(HideLoading);
+      dispatch(HideLoading());
     } catch (error) {
       dispatch(HideLoading());
       toast.error(error.message);
@@ -56,7 +56,7 @@ const Login = () => {
           <Button
             title="Login"
             onClick={login}
-            disabled={user.email.length < 3 || user.password.length < 3}
+            disabled={user.email.length < 3 || user.password.length < 6}
           />
 
           <Link to="/register" className="text-center text-primary underline">

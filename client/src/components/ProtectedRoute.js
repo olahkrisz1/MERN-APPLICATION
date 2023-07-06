@@ -10,30 +10,31 @@ function ProtectedRoute({ children }) {
   const { currentUser } = useSelector((state) => state.usersReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const getUser = async () => {
-    try {
-      dispatch(ShowLoading());
-      const response = await GetUser();
-      if (response.success) {
-        dispatch(SetCurrentUser(response.data));
-      } else {
-        navigate("/login");
-        toast.error(response.message);
-      }
-      dispatch(HideLoading());
-    } catch (error) {
-      dispatch(HideLoading());
-      toast.error(error.message);
-    }
-  };
 
   useEffect(() => {
+    const getUser = async () => {
+      try {
+        dispatch(ShowLoading());
+        const response = await GetUser();
+        if (response.success) {
+          dispatch(SetCurrentUser(response.data));
+        } else {
+          navigate("/login");
+          toast.error(response.message);
+        }
+        dispatch(HideLoading());
+      } catch (error) {
+        dispatch(HideLoading());
+        toast.error(error.message);
+      }
+    };
+
     if (localStorage.getItem("token")) {
       getUser();
     } else {
       navigate("/login");
     }
-  }, []);
+  }, [dispatch, navigate]);
 
   return (
     currentUser && (
@@ -49,7 +50,7 @@ function ProtectedRoute({ children }) {
             <h1 className="underline uppercase text-sm cursor-pointer">
               {currentUser.name}
             </h1>
-            <i class="ri-user-line"></i>
+            <i className="ri-user-line"></i>
             <i
               className="ri-logout-circle-r-line ml-5 cursor-pointer"
               onClick={() => {

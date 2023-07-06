@@ -55,7 +55,7 @@ const Register = () => {
 
           <input
             type="password"
-            placeholder="Enter your password"
+            placeholder="Password (min 6 character)"
             value={user.password}
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
@@ -66,7 +66,7 @@ const Register = () => {
             disabled={
               user.name.length < 3 ||
               user.email.length < 3 ||
-              user.password.length < 3
+              user.password.length < 6
             }
           />
 
