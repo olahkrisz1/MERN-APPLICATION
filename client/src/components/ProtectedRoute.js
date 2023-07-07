@@ -40,12 +40,19 @@ function ProtectedRoute({ children }) {
     currentUser && (
       <div className="p-5">
         <div className="bg-primary w-full p-5 justify-between flex rounded items-center">
-          <h1
-            className="text-white text-2xl font-bold uppercase cursor-pointer"
-            onClick={() => navigate("/")}
-          >
-            Matrix Master community
-          </h1>
+          <div className="flex justify-start gap-2">
+            <img
+              src="https://bootcamp.matrixmaster.info/media/logo/2020-04-14/newImage1586902000384.png"
+              width="45"
+              alt="logo"
+            />
+            <h1
+              className="text-white text-2xl font-bold uppercase cursor-pointer"
+              onClick={() => navigate("/")}
+            >
+              Matrix Master community
+            </h1>
+          </div>
           <div className="bg-white rounded p-2 flex gap-2 items-center font-semibold text-primary">
             <h1 className="underline uppercase text-sm cursor-pointer">
               {currentUser.name}

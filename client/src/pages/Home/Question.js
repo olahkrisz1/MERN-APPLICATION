@@ -6,7 +6,7 @@ function Question({ question }) {
   const navigate = useNavigate();
   return (
     <div
-      className="border border-primary rounded shadow-xl  m-2 p-5 flex flex-col gap-3 cursor-pointer bg-indigo-50"
+      className="border border-gray-200  rounded shadow-2xl hover:bg-indigo-100 m-2 p-5 flex flex-col gap-3 cursor-pointer bg-indigo-50"
       onClick={() => {
         navigate(`/question/${question._id}`);
       }}
@@ -20,8 +20,8 @@ function Question({ question }) {
 
       <div className="flex justify-between items-center">
         <div>
-          <h1>From: {question.user.name}</h1>
-          <h1>
+          <h1 className="italic font-normal">From: {question.user.name}</h1>
+          <h1 className="italic font-light text-sm">
             Created: {moment(question.createdAt).format("DD-MM-YYYY hh:mm:ss")}
           </h1>
         </div>

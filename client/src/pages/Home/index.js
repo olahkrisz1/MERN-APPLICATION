@@ -35,13 +35,13 @@ function Home() {
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between mx-2">
         <h1 className="text-primary uppercase text-2xl font-bold">
           {currentUser.name}, Welcome to Matrix Master Community!
         </h1>
 
         <Button
-          title="New question"
+          title="Ask!"
           variant="primary-outlined"
           onClick={() => navigate("/add-question")}
         />

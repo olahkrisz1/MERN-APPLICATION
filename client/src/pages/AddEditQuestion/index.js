@@ -91,53 +91,63 @@ function AddEditQuestion() {
     <div>
       <div className="flex justify-between">
         <h1 className="text-primary uppercase text-2xl font-bold">
-          {params.id ? "Edit Question" : "Add new Question"}
+          {params.id ? "Edit Question" : "Ask a Question"}
         </h1>
       </div>
-
-      <div className="flex flex-col gap-5 mt-5">
-        <input
-          type="text"
-          placeholder="Title"
-          value={question.title}
-          onChange={(e) => setQuestion({ ...question, title: e.target.value })}
-        />
-        <textarea
-          placeholder="Description"
-          value={question.description}
-          onChange={(e) =>
-            setQuestion({ ...question, description: e.target.value })
-          }
-          rows={5}
-        />
-
-        <div>
-          <Editor
-            toolbarStyle={{
-              border: "1px solid #ccc",
-            }}
-            editorStyle={{
-              border: "1px solid #ccc",
-              minHeight: "200px",
-              padding: "10px",
-            }}
-            editorState={question.content}
-            onEditorStateChange={(content) =>
-              setQuestion({ ...question, content: content })
+      <div className="grid grid-cols-2">
+        <div className="flex flex-col gap-5 mt-5 m-2">
+          <input
+            type="text"
+            placeholder="Title"
+            className="rounded shadow-lg hover:shadow-indigo-200 hover:shadow-2xl"
+            value={question.title}
+            onChange={(e) =>
+              setQuestion({ ...question, title: e.target.value })
             }
           />
-        </div>
-
-        <div className="flex justify-end gap-5 m-2">
-          <Button
-            title="Cancel"
-            variant="primary-outlined"
-            onClick={() => navigate("/")}
+          <textarea
+            placeholder="Description"
+            className="rounded shadow-lg hover:shadow-indigo-200 hover:shadow-2xl"
+            value={question.description}
+            onChange={(e) =>
+              setQuestion({ ...question, description: e.target.value })
+            }
+            rows={5}
           />
-          <Button title="Save" onClick={onSave} />
+
+          <div>
+            <Editor
+              toolbarStyle={{
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+                boxShadow: "0 5px 10px rgba(0, 0, 0, 0.1)",
+              }}
+              editorStyle={{
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+                minHeight: "200px",
+                padding: "10px",
+                marginBottom: "10px",
+                boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)",
+              }}
+              editorState={question.content}
+              onEditorStateChange={(content) =>
+                setQuestion({ ...question, content: content })
+              }
+            />
+          </div>
+
+          <div className="flex justify-end gap-5 m-2">
+            <Button
+              title="Cancel"
+              variant="primary-outlined"
+              onClick={() => navigate("/")}
+            />
+            <Button title="Save" onClick={onSave} />
+          </div>
         </div>
+        <Chat />
       </div>
-      <Chat />
     </div>
   );
 }

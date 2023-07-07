@@ -135,19 +135,26 @@ function QuestionDescription() {
   return (
     question && (
       <div className="p-2 flex flex-col gap-5">
-        {currentUser?._id === question?.user?._id && (
-          <div className="flex justify-end gap-5 ">
-            <Button
-              onClick={() => deleteQuestion()}
-              title="Delete"
-              variant="primary-outlined"
-            />
-            <Button
-              onClick={() => navigate(`/edit-question/${question?._id}`)}
-              title="Edit"
-            />
-          </div>
-        )}
+        <div className="flex justify-between">
+          <Button
+            title="Back"
+            variant="primary-outlined"
+            onClick={() => navigate("/")}
+          />
+          {currentUser?._id === question?.user?._id && (
+            <div className="flex justify-end gap-5 ">
+              <Button
+                onClick={() => deleteQuestion()}
+                title="Delete"
+                variant="primary-outlined"
+              />
+              <Button
+                onClick={() => navigate(`/edit-question/${question?._id}`)}
+                title="Edit"
+              />
+            </div>
+          )}
+        </div>
         <h1 className="text-2xl font-bold text-primary">{question?.title}</h1>
         <hr />
         <h1>{question?.description}</h1>
@@ -183,13 +190,6 @@ function QuestionDescription() {
               <span>{question.commentsCount}</span>
             </div>
           </div>
-        </div>
-        <div>
-          <Button
-            title="Back"
-            variant="primary-outlined"
-            onClick={() => navigate("/")}
-          />
         </div>
 
         <div>
